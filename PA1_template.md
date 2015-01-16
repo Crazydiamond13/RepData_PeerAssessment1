@@ -91,9 +91,10 @@ head(total.steps)
 
 
 ```r
-ggplot(total.steps, aes(x = steps)) + geom_histogram(binwidth = 1000) + 
+plot1 <- ggplot(total.steps, aes(x = steps)) + geom_histogram(binwidth = 1000) + 
           labs(title = "Histogram of steps per day", 
           x = "Number of steps per day", y = "Count")
+print(plot1)
 ```
 
 ![](PA1_template_files/figure-html/plot1-1.png) 
@@ -147,9 +148,10 @@ head(mean.daily.steps)
 Lets plot the mean daily steps:
 
 ```r
-ggplot(mean.daily.steps, aes(interval, daily_mean_steps)) + geom_line() + 
+plot2 <- ggplot(mean.daily.steps, aes(interval, daily_mean_steps)) + geom_line() + 
           labs(title = "Time series of mean daily steps", x = "Intervals 
           (in 5 minutes", y = "Number of steps")
+print(plot2)
 ```
 
 ![](PA1_template_files/figure-html/plot2-1.png) 
@@ -312,10 +314,11 @@ head(new.total.steps, 5)
 
 
 ```r
-ggplot(new.total.steps, aes(x = new_steps)) + 
+plot3 <- ggplot(new.total.steps, aes(x = new_steps)) + 
           geom_histogram(binwidth = 1000) + labs(title = "Histogram of steps 
           per day (with filled in values)", x = "Number of steps per day", 
           y = "Count")
+print(plot3)
 ```
 
 ![](PA1_template_files/figure-html/plot3-1.png) 
@@ -416,9 +419,10 @@ Now lets plot the time series for both weekdays and weekend:
 
 ```r
 library(lattice)
-xyplot(new.mean.daily.steps$daily_mean_steps ~ new.mean.daily.steps$interval | 
+plot4 <- xyplot(new.mean.daily.steps$daily_mean_steps ~ new.mean.daily.steps$interval | 
           new.mean.daily.steps$days, layout = c(1, 2), type = "l", 
           xlab = "Interval", ylab = "Number of steps")
+print(plot4)
 ```
 
 ![](PA1_template_files/figure-html/plot4-1.png) 

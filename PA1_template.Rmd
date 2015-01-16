@@ -58,9 +58,10 @@ head(total.steps)
 ```
 
 ``` {r plot1}
-ggplot(total.steps, aes(x = steps)) + geom_histogram(binwidth = 1000) + 
+plot1 <- ggplot(total.steps, aes(x = steps)) + geom_histogram(binwidth = 1000) + 
           labs(title = "Histogram of steps per day", 
           x = "Number of steps per day", y = "Count")
+print(plot1)
 ```
 
 ###2) Mean and Median total steps taken per day:
@@ -89,9 +90,10 @@ head(mean.daily.steps)
 
 Lets plot the mean daily steps:
 ``` {r plot2}
-ggplot(mean.daily.steps, aes(interval, daily_mean_steps)) + geom_line() + 
+plot2 <- ggplot(mean.daily.steps, aes(interval, daily_mean_steps)) + geom_line() + 
           labs(title = "Time series of mean daily steps", x = "Intervals 
           (in 5 minutes", y = "Number of steps")
+print(plot2)
 ```
 
 ###2)maximum number of steps in the data:
@@ -177,10 +179,11 @@ head(new.total.steps, 5)
 ```
 
 ``` {r plot3}
-ggplot(new.total.steps, aes(x = new_steps)) + 
+plot3 <- ggplot(new.total.steps, aes(x = new_steps)) + 
           geom_histogram(binwidth = 1000) + labs(title = "Histogram of steps 
           per day (with filled in values)", x = "Number of steps per day", 
           y = "Count")
+print(plot3)
 ```
 
 Lets look at the new mean and median of total steps each day:
@@ -240,7 +243,8 @@ head(new.mean.daily.steps)
 Now lets plot the time series for both weekdays and weekend:
 ``` {r plot4}
 library(lattice)
-xyplot(new.mean.daily.steps$daily_mean_steps ~ new.mean.daily.steps$interval | 
+plot4 <- xyplot(new.mean.daily.steps$daily_mean_steps ~ new.mean.daily.steps$interval | 
           new.mean.daily.steps$days, layout = c(1, 2), type = "l", 
           xlab = "Interval", ylab = "Number of steps")
+print(plot4)
 ```
